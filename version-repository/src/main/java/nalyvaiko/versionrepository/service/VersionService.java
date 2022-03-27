@@ -17,11 +17,11 @@ public class VersionService {
         
     }
     
-    public Version find(String uuid, String objectType, String odjectUuid, Integer number) {
+    public List<Version> get(String dataBase, String objectType, String odjectUuid) {
         return null;
     }
     
-    public List<Version> find(String dataBase, String objectType, String odjectUuid) {
+    public Version getByNumber(String uuid, String objectType, String odjectUuid, Integer number) {
         return null;
     }
     

@@ -27,14 +27,14 @@ public class VersionController {
     }
     
     @GetMapping(value = "/{dataBase}/{objectType}/{odjectUuid}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Version>> findAll(@RequestBody String dataBase, String objectType, String odjectUuid) {
-        List<Version> versions = service.find(dataBase, objectType, odjectUuid);
+    public ResponseEntity<List<Version>> get(@RequestBody String dataBase, String objectType, String odjectUuid) {
+        List<Version> versions = service.get(dataBase, objectType, odjectUuid);
         return new ResponseEntity<>(versions, HttpStatus.OK);
     }
     
     @GetMapping(value = "/{dataBase}/{objectType}/{odjectUuid}/{versionNumber}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Version> findById(@RequestBody String dataBase, String objectType, String odjectUuid, int versionNumber) {
-        Version version = service.find(dataBase, objectType, odjectUuid, versionNumber);
+    public ResponseEntity<Version> getByNumber(@RequestBody String dataBase, String objectType, String odjectUuid, int versionNumber) {
+        Version version = service.getByNumber(dataBase, objectType, odjectUuid, versionNumber);
         return new ResponseEntity<>(version, HttpStatus.OK);
     }
     
