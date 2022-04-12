@@ -1,68 +1,84 @@
 package nalyvaiko.versionrepository.domain;
 
+import java.util.Objects;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Version {
     
+	@Id
     private String id;
     
-    private int versionNumber;
+    private String uuid;
+    
+    private Integer number;
     
     private String object;
     
     public Version() { }
-    
-    public Version(String id, int versionNumber, String object) {
-        this.id = id;
-        this.versionNumber = versionNumber;
-        this.object = object;
-    }
 
-    public String getId() {
-        return id;
-    }
+	public Version(String uuid, Integer number, String object) {
+		this.uuid = uuid;
+		this.number = number;
+		this.object = object;
+	}
+	
+	public Version(String id, String uuid, Integer number, String object) {
+		this.id = id;
+		this.uuid = uuid;
+		this.number = number;
+		this.object = object;
+	}
+	
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public int getVersionNumber() {
-        return versionNumber;
-    }
+	public String getUuid() {
+		return uuid;
+	}
 
-    public void setVersionNumber(int versionNumber) {
-        this.versionNumber = versionNumber;
-    }
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
 
-    public String getObject() {
-        return object;
-    }
+	public Integer getNumber() {
+		return number;
+	}
 
-    public void setObject(String object) {
-        this.object = object;
-    }
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        return result;
-    }
+	public String getObject() {
+		return object;
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Version other = (Version) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        return true;
-    }
-    
+	public void setObject(String object) {
+		this.object = object;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Version other = (Version) obj;
+		return Objects.equals(id, other.id);
+	}
+	
 }
