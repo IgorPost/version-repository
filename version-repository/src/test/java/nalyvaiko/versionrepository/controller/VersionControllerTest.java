@@ -10,7 +10,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import nalyvaiko.versionrepository.dto.VersionDto;
-import nalyvaiko.versionrepository.service.VersionService;
+import nalyvaiko.versionrepository.service.impl.VersionServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 class VersionControllerTest {
@@ -26,7 +26,7 @@ class VersionControllerTest {
 	VersionDto version = new VersionDto(odjectUuid, versionNumber, "");
 	
 	@Mock
-	private VersionService service;
+	private VersionServiceImpl service;
 	
 	@BeforeEach
 	void init() {
