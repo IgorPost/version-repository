@@ -17,19 +17,23 @@ public class Version {
     
     private String object;
     
+    private Author author;
+    
     public Version() { }
 
-	public Version(String uuid, Integer number, String object) {
+	public Version(String uuid, Integer number, String object, Author author) {
 		this.uuid = uuid;
 		this.number = number;
 		this.object = object;
+		this.author = author;
 	}
 	
-	public Version(String id, String uuid, Integer number, String object) {
+	public Version(String id, String uuid, Integer number, String object, Author author) {
 		this.id = id;
 		this.uuid = uuid;
 		this.number = number;
 		this.object = object;
+		this.author = author;
 	}
 	
 	public String getId() {
@@ -63,10 +67,26 @@ public class Version {
 	public void setObject(String object) {
 		this.object = object;
 	}
-
+	
+	public String getAuthorId() {
+		return author.getId();
+	}
+	
+	public String getAuthorName() {
+		return author.getName();
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
+	}
+	
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
 	@Override

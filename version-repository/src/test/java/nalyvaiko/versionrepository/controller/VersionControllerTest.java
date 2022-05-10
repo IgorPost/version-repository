@@ -23,7 +23,7 @@ class VersionControllerTest {
 	String odjectUuid = "4bf85396-cc7a-11ea-9ef0-c86000245adb";
 	int versionNumber = 1;
 	
-	VersionDto version = new VersionDto(odjectUuid, versionNumber, "");
+	VersionDto version = new VersionDto(odjectUuid, versionNumber, "", "", "");
 	
 	@Mock
 	private VersionServiceImpl service;
