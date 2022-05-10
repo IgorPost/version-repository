@@ -67,9 +67,9 @@ public class VersionController {
     @PostMapping(value = "/{dataBase}/{metadataType}/{objectName}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Add version", notes = "The method adds a new version", httpMethod = "POST")
 	public ResponseEntity<?> add(@Valid @RequestBody VersionDto versionDto,
-    								@PathVariable String dataBase,
-    								@PathVariable String metadataType,
-    								@PathVariable String objectName) {
+    									@PathVariable String dataBase,
+    									@PathVariable String metadataType,
+    									@PathVariable String objectName) {
         service.add(dataBase, metadataType, objectName, versionDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
