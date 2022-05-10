@@ -1,5 +1,6 @@
 package nalyvaiko.versionrepository.domain;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
@@ -15,23 +16,27 @@ public class Version {
     
     private Integer number;
     
+    private LocalDateTime dateTime;
+    
     private String object;
     
     private Author author;
     
     public Version() { }
 
-	public Version(String uuid, Integer number, String object, Author author) {
+	public Version(String uuid, Integer number, LocalDateTime dateTime, String object, Author author) {
 		this.uuid = uuid;
 		this.number = number;
+		this.dateTime = dateTime;
 		this.object = object;
 		this.author = author;
 	}
 	
-	public Version(String id, String uuid, Integer number, String object, Author author) {
+	public Version(String id, String uuid, Integer number, LocalDateTime dateTime, String object, Author author) {
 		this.id = id;
 		this.uuid = uuid;
 		this.number = number;
+		this.dateTime = dateTime;
 		this.object = object;
 		this.author = author;
 	}
@@ -67,7 +72,23 @@ public class Version {
 	public void setObject(String object) {
 		this.object = object;
 	}
+
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
 	
+	public LocalDateTime getDateTime() {
+		return dateTime;
+	}
+
+	public void setDateTime(LocalDateTime dateTime) {
+		this.dateTime = dateTime;
+	}
+
 	public String getAuthorId() {
 		return author.getId();
 	}
@@ -81,14 +102,6 @@ public class Version {
 		return Objects.hash(id);
 	}
 	
-	public Author getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(Author author) {
-		this.author = author;
-	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
