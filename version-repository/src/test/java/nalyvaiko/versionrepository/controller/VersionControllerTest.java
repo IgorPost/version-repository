@@ -3,6 +3,8 @@ package nalyvaiko.versionrepository.controller;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
+import java.time.LocalDateTime;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,8 +24,9 @@ class VersionControllerTest {
 	String objectType = "Invoice";
 	String odjectUuid = "4bf85396-cc7a-11ea-9ef0-c86000245adb";
 	int versionNumber = 1;
+	LocalDateTime dateTime = LocalDateTime.now();
 	
-	VersionDto version = new VersionDto(odjectUuid, versionNumber, "", "", "");
+	VersionDto version = new VersionDto(odjectUuid, versionNumber, dateTime, "", "", "");
 	
 	@Mock
 	private VersionServiceImpl service;
