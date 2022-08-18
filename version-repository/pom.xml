@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>nalyvaiko</groupId>
 	<artifactId>version-repository</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>version-repository</name>
 	<description>Object version storage</description>
 	<properties>
