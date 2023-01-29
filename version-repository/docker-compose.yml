@@ -8,7 +8,7 @@ services:
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: kkdernbclp
+      MONGO_INITDB_ROOT_PASSWORD: kdernbclp
     ports:
       - 27017:27017
       
@@ -19,17 +19,25 @@ services:
       - 8081:8081
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: kkdernbclp
-      ME_CONFIG_MONGODB_URL: mongodb://root:kkdernbclp@mongo:27017/
+      ME_CONFIG_MONGODB_ADMINPASSWORD: kdernbclp
+      ME_CONFIG_MONGODB_URL: mongodb://root:kdernbclp@mongo:27017/
     volumes:
       - mongodb:/data/db
       
-  java:
+  object-versioning-server:
+    container_name: object-versioning-server
     build: ./
     depends_on:
       - mongo
     ports:
       - 8080:8080
+    environment:
+      SPRING_DATA_MONGODB_HOST: mongo
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_USERNAME: root
+      SPRING_DATA_MONGODB_PASSWORD: kdernbclp
+      SPRING_DATA_MONGODB_DATABASE: object_versions
+      SPRING_DATA_MONGODB_AUTHENTICATION_DATABASE: admin
       
 volumes:
   mongodb:
