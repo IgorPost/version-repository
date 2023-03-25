@@ -24,6 +24,7 @@ import io.swagger.annotations.ApiOperation;
 import nalyvaiko.versionrepository.dto.VersionDto;
 import nalyvaiko.versionrepository.service.VersionService;
 
+
 @Api(tags = {VERSION_TAG})
 @RestController
 @RequestMapping("/api")
